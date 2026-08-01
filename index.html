@@ -1,1 +1,115 @@
-hi
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Infinity-PY-Code</title>
+    <meta name="description" content="Infinity-PY-Code — Projects, utilities and demos built with Python." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#7c5cff;--glass:rgba(255,255,255,0.04)}
+      *{box-sizing:border-box}
+      html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:#e6eef8;background:linear-gradient(180deg,#071022 0%,#071827 100%)}
+      .container{max-width:980px;margin:48px auto;padding:24px}
+      header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+      .brand{display:flex;align-items:center;gap:12px}
+      .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3ddbd9);display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
+      h1{font-size:1.6rem;margin:0}
+      p.lead{color:var(--muted);margin:6px 0 0}
+      nav a{color:var(--muted);text-decoration:none;margin-left:16px}
+      .hero{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:28px}
+      .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+      .actions{display:flex;gap:12px;margin-top:16px}
+      .btn{padding:10px 14px;border-radius:8px;border:0;cursor:pointer;font-weight:600}
+      .btn-primary{background:var(--accent);color:white}
+      .btn-ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
+      ul.features{list-style:none;padding:0;margin:12px 0 0}
+      ul.features li{display:flex;gap:12px;align-items:flex-start;color:var(--muted);margin:10px 0}
+      .feature-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(180deg,var(--accent),#3ddbd9);margin-top:6px}
+      .sidebar{display:flex;flex-direction:column;gap:12px}
+      .small{font-size:0.9rem;color:var(--muted)}
+      footer{margin-top:36px;color:var(--muted);text-align:center;font-size:0.9rem}
+      @media (max-width:880px){.hero{grid-template-columns:1fr;}.logo{width:48px;height:48px}}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="brand">
+          <div class="logo">IP</div>
+          <div>
+            <h1>Infinity-PY-Code</h1>
+            <p class="lead">Python projects, tools and examples — lightweight, practical, and open source.</p>
+          </div>
+        </div>
+        <nav>
+          <a href="https://github.com/Infinity-PY-Code" target="_blank" rel="noopener">GitHub</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+        </nav>
+      </header>
+
+      <main class="hero">
+        <section class="card">
+          <h2 style="margin-top:0">Make something useful today</h2>
+          <p class="small">Explore curated Python demos, CLI utilities, and web examples. Everything here is free to fork and extend.</p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">See Projects</a>
+            <a class="btn btn-ghost" href="https://github.com/Infinity-PY-Code/infinity-py-code.github.io" target="_blank" rel="noopener">View Source</a>
+          </div>
+
+          <ul class="features">
+            <li><div class="feature-dot"></div><div><strong>Examples & snippets</strong><div class="small">Small, focused scripts you can copy and reuse.</div></div></li>
+            <li><div class="feature-dot"></div><div><strong>Utilities & tools</strong><div class="small">Command-line helpers and automations for everyday tasks.</div></div></li>
+            <li><div class="feature-dot"></div><div><strong>Learning resources</strong><div class="small">Guides and notes to help you learn by doing.</div></div></li>
+          </ul>
+
+        </section>
+
+        <aside class="sidebar">
+          <div class="card">
+            <h3 style="margin:0 0 8px 0">Featured</h3>
+            <div class="small">Quick links to highlighted projects and demos.</div>
+            <ol style="margin:12px 0 0;padding-left:18px;color:var(--muted)">
+              <li><a href="#">fast-csv-tool</a></li>
+              <li><a href="#">image-resize-cli</a></li>
+              <li><a href="#">web-scrape-demo</a></li>
+            </ol>
+          </div>
+
+          <div class="card">
+            <h4 style="margin:0 0 8px 0">Get involved</h4>
+            <div class="small">Fork the repo, open issues, or drop a star to support development.</div>
+            <div style="margin-top:12px"><a class="btn btn-primary" href="https://github.com/Infinity-PY-Code/infinity-py-code.github.io" target="_blank" rel="noopener">Contribute</a></div>
+          </div>
+        </aside>
+      </main>
+
+      <section id="projects" style="margin-top:28px">
+        <div class="card">
+          <h3 style="margin-top:0">Projects</h3>
+          <p class="small">This site is a hub — each project has its own directory with README and examples. Coming soon: live demos.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px">
+            <div class="card" style="background:var(--glass);padding:12px"><strong>fast-csv-tool</strong><div class="small">Simple CSV cleaning and summarization.</div></div>
+            <div class="card" style="background:var(--glass);padding:12px"><strong>image-resize-cli</strong><div class="small">Batch image resizing with progress output.</div></div>
+            <div class="card" style="background:var(--glass);padding:12px"><strong>web-scrape-demo</strong><div class="small">Lightweight scraping examples using requests + BeautifulSoup.</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" style="margin-top:20px">
+        <div class="card">
+          <h3 style="margin-top:0">About</h3>
+          <p class="small">Infinity-PY-Code is a personal collection of Python experiments and tools. If you'd like to collaborate or have suggestions, open an issue or create a PR on GitHub.</p>
+        </div>
+      </section>
+
+      <footer>
+        Built with Python ❤️ — <a href="https://github.com/Infinity-PY-Code" target="_blank" rel="noopener">Infinity-PY-Code</a>
+      </footer>
+    </div>
+  </body>
+</html>
