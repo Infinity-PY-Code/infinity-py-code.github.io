@@ -1,45 +1,87 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Redirecting...</title>
-  <meta name="robots" content="noindex">
-  <script>
-    // Get the redirect URL from query parameter or default to homepage
-    const params = new URLSearchParams(window.location.search);
-    const redirectTo = params.get('to') || '/';
-    
-    // Redirect after a short delay
-    setTimeout(() => {
-      window.location.href = redirectTo;
-    }, 500);
-  </script>
-  <style>
-    :root{--bg:#0f1724;--card:#0b1220;--accent:#7dd3fc;--muted:#93a7bd}
-    html,body{height:100%;margin:0;font-family:Inter, Roboto, -apple-system, system-ui, "Segoe UI", "Helvetica Neue", Arial; background:linear-gradient(180deg,#071027 0%, #0f1724 100%);color:#e6f0fb}
-    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:48px}
-    .card{max-width:820px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:48px;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.3)}
-    h2{margin:0 0 16px;font-size:20px;color:#eaf6ff}
-    p{margin:0 0 18px;color:var(--muted)}
-    .spinner{width:40px;height:40px;border:3px solid rgba(125,211,252,0.2);border-top:3px solid var(--accent);border-radius:50%;animation:spin 1s linear infinite;margin-bottom:20px}
-    @keyframes spin{to{transform:rotate(360deg)}}
-    .actions{display:flex;gap:12px;margin-top:8px}
-    .btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;color:#072433;background:#e6f0fb;border:0;font-weight:600}
-    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(125,211,252,0.16)}
-    @media (max-width:640px){.card{padding:28px}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 480px;
+            width: 100%;
+            background: #ffffff;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            color: #64748b;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .home-btn {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: #ffffff;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+
+        .home-btn:hover {
+            background-color: #2563eb;
+        }
+    </style>
+    <script>
+        // Parse the query parameter 'page' from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const targetPage = urlParams.get('page');
+
+        if (targetPage) {
+            // Immediate redirect if 'page' parameter exists
+            window.location.replace(targetPage);
+        } else {
+            // Fallback content if no 'page' parameter is provided
+            window.addEventListener('DOMContentLoaded', () => {
+                document.getElementById('message').textContent = 'No destination specified.';
+                document.getElementById('redirect-link').style.display = 'none';
+            });
+        }
+    </script>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <div class="spinner"></div>
-      <h2>Redirecting...</h2>
-      <p>Please wait while we redirect you to the correct page.</p>
-      <div class="actions">
-        <a class="btn secondary" href="/">Go to homepage instead</a>
-      </div>
+    <div class="container">
+        <h1>Redirecting...</h1>
+        <p id="message">Please wait while we take you to your destination.</p>
+        <a id="redirect-link" href="/" class="home-btn">Click here if not redirected</a>
     </div>
-  </div>
 </body>
 </html>
