@@ -1,72 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>St Michael's — Welcome</title>
+  <meta name="description" content="Welcome to St Michael's — a calm place for prayer, music and community." />
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#f3f4f6;
+      --gold:#d4af37;
+      --glass: rgba(255,255,255,0.06);
+      --max-width:1100px;
+      --radius:12px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 1rem;
-        }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #071025 0%, #071826 60%);
+      color:var(--accent);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      display:flex;
+      justify-content:center;
+      padding:2rem 1rem;
+    }
 
-        .container {
-            text-align: center;
-            max-width: 480px;
-            width: 100%;
-            background: #ffffff;
-            padding: 3rem 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-        }
+    .site{
+      width:100%;
+      max-width:var(--max-width);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    }
 
-        h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #3b82f6;
-            margin-bottom: 0.75rem;
-        }
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1rem 1.25rem;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
 
-        p {
-            color: #64748b;
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            line-height: 1.5;
-        }
+    .brand{
+      display:flex;align-items:center;gap:.75rem;font-weight:600;color:var(--accent);
+    }
+    .brand .logo{
+      width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,#1f2937,#111827);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold);
+      box-shadow: inset 0 -6px 18px rgba(0,0,0,0.6);
+    }
 
-        .action-btn {
-            display: inline-block;
-            background-color: #3b82f6;
-            color: #ffffff;
-            font-weight: 500;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: background-color 0.2s ease;
-        }
+    nav a{color:var(--muted);text-decoration:none;margin-left:1rem;font-size:.95rem}
+    nav a:hover{color:var(--accent)}
 
-        .action-btn:hover {
-            background-color: #2563eb;
-        }
-    </style>
+    .hero{
+      display:grid;grid-template-columns:1fr;align-items:center;gap:1.25rem;padding:2.25rem;position:relative;
+      background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=60');
+      background-size:cover;background-position:center;
+    }
+
+    .hero:before{
+      content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,6,23,0.55),rgba(2,6,23,0.6));
+    }
+
+    .hero-inner{position:relative;z-index:1;max-width:880px;margin:0 auto;text-align:center;color:var(--accent)}
+    h1{font-size:2.25rem;margin:0 0 .5rem;font-weight:700;letter-spacing:-0.02em}
+    .lead{color:var(--muted);font-size:1.05rem;margin-bottom:1rem}
+
+    .cta{display:inline-flex;gap:.5rem;align-items:center;background:rgba(255,255,255,0.95);color:#081126;padding:.6rem 1rem;border-radius:999px;font-weight:600;text-decoration:none}
+    .cta.secondary{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--accent)}
+
+    main{padding:2rem 2.25rem 3rem;background:linear-gradient(180deg, transparent, rgba(255,255,255,0.01));}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:1.25rem;align-items:start}
+    .card{background:var(--card);padding:1.25rem;border-radius:var(--radius);box-shadow: 0 6px 20px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+
+    .about h2{margin:0 0 .5rem}
+    .about p{color:var(--muted)}
+
+    .events h3{margin:0 0 .75rem}
+    .event{padding:.75rem;border-radius:10px;background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));margin-bottom:.6rem}
+    .event small{display:block;color:var(--muted);font-size:.9rem}
+
+    .aside .box{margin-bottom:1rem;padding:.9rem;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+
+    footer{padding:1rem 1.25rem;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center}
+    footer p{color:var(--muted);margin:0;font-size:.9rem}
+
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      nav a{display:none}
+      .hero{padding:2.5rem 1.25rem}
+      h1{font-size:1.75rem}
+    }
+
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome</h1>
-        <p>You have successfully set up your site. Replace this placeholder content with your own project details.</p>
-        <a href="#" class="action-btn">Get Started</a>
-    </div>
+  <div class="site" role="document">
+    <header>
+      <div class="brand">
+        <div class="logo">SM</div>
+        <div>
+          <div style="font-size:0.95rem">St Michael's Abbey</div>
+          <div style="font-size:0.78rem;color:var(--muted);margin-top:2px">Community, worship & music</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#events">Events</a>
+        <a href="#visit">Visit</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-inner">
+        <h1 id="hero-heading">A place for prayer, music and welcome</h1>
+        <p class="lead">Join us for services, concerts and community events. All are welcome — find times, directions and how to get involved.</p>
+        <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
+          <a class="cta" href="#visit">Plan a Visit</a>
+          <a class="cta secondary" href="#events">See Events</a>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <div class="grid">
+        <div>
+          <section id="about" class="card about">
+            <h2>Welcome to St Michael's</h2>
+            <p>St Michael's Abbey is a historic place of worship offering daily prayer, community outreach and a busy programme of music and concerts. We aim to be a calm, inclusive space for spiritual life and cultural events.</p>
+            <p style="margin-top:.85rem;color:var(--muted)">This sample page is styled to give a similar structure and feel to the reference site: large hero image, clear navigation, upcoming events, and accessible layout. Replace these placeholders with your real content, images and links.</p>
+          </section>
+
+          <section id="services" style="margin-top:1rem" class="card">
+            <h3>Services & Times</h3>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:.6rem">
+              <div style="flex:1;min-width:180px">
+                <strong>Sunday Eucharist</strong>
+                <div style="color:var(--muted);font-size:.95rem">10:30am — Sung Eucharist</div>
+              </div>
+              <div style="flex:1;min-width:180px">
+                <strong>Evensong</strong>
+                <div style="color:var(--muted);font-size:.95rem">5:00pm — Choral Evensong (Wed & Sun)</div>
+              </div>
+            </div>
+          </section>
+
+          <section id="events" style="margin-top:1rem" class="card events">
+            <h3>Upcoming Events</h3>
+            <div class="event">
+              <strong>Choral Concert — The Abbey Choir</strong>
+              <small>Sat 12 Sep — 7:30pm · Tickets available at the door</small>
+            </div>
+            <div class="event">
+              <strong>Advent Lessons & Carols</strong>
+              <small>Sun 5 Dec — 6:00pm · Free admission</small>
+            </div>
+            <a href="#" style="color:var(--gold);text-decoration:none;font-weight:600">View full calendar →</a>
+          </section>
+        </div>
+
+        <aside class="aside">
+          <div class="card box">
+            <h4 style="margin:0 0 .5rem">Plan your visit</h4>
+            <p style="color:var(--muted);margin:0 .0 0.5rem">Find the address, opening times and travel information.</p>
+            <a class="cta" href="#visit">Get directions</a>
+          </div>
+
+          <div class="card box">
+            <h4 style="margin:0 0 .5rem">Support the Abbey</h4>
+            <p style="color:var(--muted);margin:0 .0 0.5rem">Learn about donations, volunteering and how to support our music programme.</p>
+            <a class="cta secondary" href="#">Donate</a>
+          </div>
+
+          <div class="card box">
+            <h4 style="margin:0 0 .5rem">Contact</h4>
+            <p style="color:var(--muted);margin:0">Email: <a href="mailto:info@stmichaels.example" style="color:var(--gold);text-decoration:none">info@stmichaels.example</a></p>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; St Michael's Abbey · All rights reserved</p>
+      <p style="color:var(--muted)">Built with care · <a href="#" style="color:var(--muted);text-decoration:underline">Privacy</a></p>
+    </footer>
+  </div>
 </body>
 </html>
